@@ -1,6 +1,6 @@
-# moneyprint_automaticly_DYL
 
-`moneyprint_automaticly_DYL` is a ground-up rewrite of the original DTLN
+
+It is a ground-up rewrite of the original DTLN
 codebase and the existing repository-specific AEC branch. The project keeps the
 core Dual-Signal Transformation LSTM ideas, but turns the repository into a
 maintainable Python package with explicit configuration, reusable data
