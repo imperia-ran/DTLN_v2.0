@@ -1,0 +1,54 @@
+{
+  "benchmark_type": "real_tflite_quality",
+  "seconds": 15.0,
+  "model_prefix": "DTLNbeta\\dtln_aecmodel_blockLen512_blockShift_256",
+  "input_metrics": {
+    "snr": 2.943206336788433,
+    "si_sdr": 2.9444763550453357,
+    "mse": 0.012423055068622582,
+    "mae": 0.09289337259904286,
+    "correlation": 0.8144262415631048,
+    "framewise_snr_mean": 1.6850548709957667
+  },
+  "legacy_metrics": {
+    "snr": 0.06969724397473887,
+    "si_sdr": -14.959956239632447,
+    "mse": 0.024075815782755586,
+    "mae": 0.1192588408512774,
+    "correlation": 0.17586539582783742,
+    "framewise_snr_mean": 0.06820159338916669
+  },
+  "rewritten_metrics": {
+    "snr": 0.06969724397473887,
+    "si_sdr": -14.959956239632447,
+    "mse": 0.024075815782755586,
+    "mae": 0.1192588408512774,
+    "correlation": 0.17586539582783742,
+    "framewise_snr_mean": 0.06820159338916669
+  },
+  "legacy_improvement_over_input": {
+    "snr_delta": -2.8735090928136944,
+    "si_sdr_delta": -17.904432594677782,
+    "mse_delta": 0.011652760714133004,
+    "mae_delta": 0.026365468252234542,
+    "correlation_delta": -0.6385608457352674,
+    "framewise_snr_mean_delta": -1.6168532776066
+  },
+  "rewritten_improvement_over_input": {
+    "snr_delta": -2.8735090928136944,
+    "si_sdr_delta": -17.904432594677782,
+    "mse_delta": 0.011652760714133004,
+    "mae_delta": 0.026365468252234542,
+    "correlation_delta": -0.6385608457352674,
+    "framewise_snr_mean_delta": -1.6168532776066
+  },
+  "loop_output_diff": {
+    "max_abs": 0.0,
+    "mean_abs": 0.0
+  },
+  "notes": [
+    "The clean reference is synthetic and fully known, so the metric comparison is deterministic.",
+    "Legacy and rewritten loops use the same TFLite weights; any metric gap should come from orchestration differences only.",
+    "These metrics are useful for regression checks, not as a substitute for a real speech dataset evaluation."
+  ]
+}
