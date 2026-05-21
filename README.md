@@ -7,6 +7,28 @@ maintainable Python package with explicit configuration, reusable data
 pipelines, test coverage, conversion helpers, and compatibility shims for the
 legacy scripts.
 
+## Retained advantages
+
+The rewrite intentionally keeps the strengths of the original project and the
+existing AEC branch:
+
+- The real-time two-stage DTLN/AEC inference structure is preserved.
+- Existing TFLite model artifacts under `DTLNbeta/` remain usable.
+- Legacy entry points are still available through compatibility wrappers.
+- The repository-specific dual-input AEC workflow is kept instead of being
+  flattened into a denoising-only layout.
+
+What improved around those strengths:
+
+- The code is now package-structured and configuration-driven instead of being
+  centered on one large script.
+- Data validation, manifest building, export, inspection, and reporting are now
+  first-class modules.
+- Training, export, offline inference, and streaming-style inference share
+  reusable runtime code.
+- Regression tests and benchmark scripts are included so changes can be checked
+  instead of guessed.
+
 ## What changed
 
 - The single-file training script was decomposed into a package under
@@ -20,6 +42,21 @@ legacy scripts.
   shared runtime code.
 - The previous `DTLNbeta` scripts are kept as thin compatibility wrappers so
   existing workflows do not break immediately.
+
+## Benchmarks
+
+The repository now includes benchmark scripts and reports for the rewritten
+runtime path.
+
+- Real TFLite runtime benchmark: the rewritten inference loop is about 6% to 7%
+  faster than the previous loop while producing identical output for the same
+  AEC `.tflite` weights.
+- Quality regression checks: legacy and rewritten loops produce identical audio
+  output on the tested real `.tflite` models, so the rewrite does not introduce
+  an inference-quality regression by itself.
+- The benchmark work also showed that the current checked-in AEC weights are the
+  limiting factor for quality on the tested speech cases; the runtime rewrite
+  improves execution efficiency, not the learned model quality.
 
 ## Layout
 
