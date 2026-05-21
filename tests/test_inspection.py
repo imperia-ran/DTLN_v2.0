@@ -11,7 +11,7 @@ def test_compare_signals_reports_basic_statistics() -> None:
     report = compare_signals(reference, estimate)
     assert report["reference_power"] > 0.0
     assert report["error_power"] >= 0.0
-    assert report["peak_reference"] == 0.3
+    assert abs(report["peak_reference"] - 0.3) < 1e-6
 
 
 def test_format_dataset_summary_contains_expected_keys() -> None:

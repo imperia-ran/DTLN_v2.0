@@ -1,0 +1,34 @@
+{
+  "benchmark_type": "synthetic_fake_interpreter",
+  "seconds": 30.0,
+  "repeats": 8,
+  "legacy": {
+    "name": "legacy_loop",
+    "iterations": 8,
+    "mean_ms": 185.95677499251906,
+    "median_ms": 185.42990001151338,
+    "p95_ms": 192.03639996703714,
+    "rtf_x": 161.32781395680198
+  },
+  "rewritten": {
+    "name": "rewritten_loop",
+    "iterations": 8,
+    "mean_ms": 187.49517500691582,
+    "median_ms": 185.2002500090748,
+    "p95_ms": 203.70459998957813,
+    "rtf_x": 160.00411743338697
+  },
+  "comparison": {
+    "mean_ms_delta_percent": 0.8272890377124715,
+    "median_ms_delta_percent": -0.12384734200057057,
+    "p95_ms_delta_percent": 6.076035597701177,
+    "rtf_delta_percent": -0.8205011218768818,
+    "max_abs_output_diff": 0.0,
+    "mean_abs_output_diff": 0.0
+  },
+  "notes": [
+    "This benchmark measures Python/Numpy orchestration overhead only.",
+    "Actual TFLite model execution is replaced by deterministic fake interpreters because TensorFlow and tflite_runtime are not installed in this environment.",
+    "The new runtime should only be interpreted as faster/slower in control-path overhead, not as an end-to-end audio quality claim."
+  ]
+}

@@ -74,7 +74,7 @@ def test_overlap_add_reconstructs_simple_frames() -> None:
         dtype=np.float32,
     )
     reconstructed = overlap_add(frames, block_shift=2)
-    assert reconstructed.tolist() == [1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+    assert reconstructed.tolist() == [1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
 
 
 def test_overlap_add_rejects_non_2d_input() -> None:

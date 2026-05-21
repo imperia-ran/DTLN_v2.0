@@ -1,0 +1,35 @@
+{
+  "benchmark_type": "real_tflite_model",
+  "seconds": 15.0,
+  "repeats": 6,
+  "model_prefix": "DTLNbeta\\dtln_aecmodel_blockLen512_blockShift_256",
+  "legacy": {
+    "name": "legacy_loop",
+    "iterations": 6,
+    "mean_ms": 199.27278331791362,
+    "median_ms": 200.74484997894615,
+    "p95_ms": 205.14710003044456,
+    "rtf_x": 75.27370145711001
+  },
+  "rewritten": {
+    "name": "rewritten_loop",
+    "iterations": 6,
+    "mean_ms": 186.86084998383498,
+    "median_ms": 187.35949997790158,
+    "p95_ms": 190.51340001169592,
+    "rtf_x": 80.27363677997624
+  },
+  "comparison": {
+    "mean_ms_delta_percent": -6.22861442863325,
+    "median_ms_delta_percent": -6.667842289577246,
+    "p95_ms_delta_percent": -7.1332716945922945,
+    "rtf_delta_percent": 6.642340187980706,
+    "max_abs_output_diff": 0.0,
+    "mean_abs_output_diff": 0.0
+  },
+  "notes": [
+    "Both paths process the same synthetic audio length with the same block geometry.",
+    "In `real` mode, both paths use the repository's existing TFLite models.",
+    "Output differences should be zero or numerically tiny because the rewritten loop preserves the tensor contract."
+  ]
+}
