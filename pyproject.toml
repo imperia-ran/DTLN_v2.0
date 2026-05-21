@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "moneyprint-dtln"
+version = "0.1.0"
+description = "A maintainable rewrite of the DTLN denoising and AEC training stack."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "GR33N-WCL" }
+]
+dependencies = [
+  "numpy>=1.24",
+  "soundfile>=0.12",
+  "wavinfo>=3.1",
+]
+
+[project.optional-dependencies]
+train = [
+  "tensorflow>=2.12",
+]
+export = [
+  "tensorflow>=2.12",
+]
+dev = [
+  "pytest>=8.0",
+]
+
+[project.scripts]
+moneyprint-dtln = "moneyprint_dtln.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

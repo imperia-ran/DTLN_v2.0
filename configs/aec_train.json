@@ -1,0 +1,69 @@
+{
+  "audio": {
+    "sample_rate": 16000,
+    "block_len": 512,
+    "block_shift": 256,
+    "clip_output": true,
+    "normalize_input": false
+  },
+  "dataset": {
+    "mode": "aec",
+    "train_noisy_root": "/path/to/train/nearend_mic_signal",
+    "train_clean_root": "/path/to/train/nearend_speech",
+    "train_farend_root": "/path/to/train/farend_speech",
+    "val_noisy_root": "/path/to/val/nearend_mic_signal",
+    "val_clean_root": "/path/to/val/nearend_speech",
+    "val_farend_root": "/path/to/val/farend_speech",
+    "chunk_seconds": 8.0,
+    "batch_size": 16,
+    "shuffle_buffer": 128,
+    "repeat": true,
+    "drop_remainder": true,
+    "prefetch": 2
+  },
+  "model": {
+    "mode": "aec",
+    "lstm_units": 64,
+    "lstm_layers": 2,
+    "encoder_size": 192,
+    "activation": "sigmoid",
+    "dropout": 0.25,
+    "use_log_stft_norm": true,
+    "use_safe_multiply": true,
+    "mixed_precision": false,
+    "clip_multiply": 10000.0
+  },
+  "training": {
+    "run_name": "dtln_aec_rewrite",
+    "epochs": 200,
+    "learning_rate": 0.001,
+    "clip_norm": 3.0,
+    "patience": 10,
+    "lr_patience": 3,
+    "min_learning_rate": 1e-10,
+    "checkpoint_dir": "checkpoints",
+    "log_dir": "artifacts",
+    "random_seed": 42,
+    "monitor": "val_loss",
+    "save_best_only": true
+  },
+  "export": {
+    "export_dir": "exports",
+    "weights_path": null,
+    "export_saved_model": true,
+    "export_tflite": true,
+    "dynamic_range_quant": false,
+    "write_keras_model": false
+  },
+  "inference": {
+    "weights_path": null,
+    "model_prefix": null,
+    "input_root": null,
+    "output_root": null,
+    "stateful": true,
+    "tflite": false,
+    "recursive": true,
+    "mic_suffix": "mic.wav",
+    "lpb_suffix": "lpb.wav"
+  }
+}

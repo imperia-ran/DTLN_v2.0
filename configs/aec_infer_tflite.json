@@ -1,0 +1,63 @@
+{
+  "audio": {
+    "sample_rate": 16000,
+    "block_len": 512,
+    "block_shift": 256,
+    "clip_output": true,
+    "normalize_input": false
+  },
+  "dataset": {
+    "mode": "aec",
+    "train_noisy_root": "/unused",
+    "train_clean_root": "/unused",
+    "train_farend_root": "/unused",
+    "val_noisy_root": "/unused",
+    "val_clean_root": "/unused",
+    "val_farend_root": "/unused"
+  },
+  "model": {
+    "mode": "aec",
+    "lstm_units": 64,
+    "lstm_layers": 2,
+    "encoder_size": 192,
+    "activation": "sigmoid",
+    "dropout": 0.25,
+    "use_log_stft_norm": true,
+    "use_safe_multiply": true,
+    "mixed_precision": false,
+    "clip_multiply": 10000.0
+  },
+  "training": {
+    "run_name": "unused",
+    "epochs": 1,
+    "learning_rate": 0.001,
+    "clip_norm": 3.0,
+    "patience": 1,
+    "lr_patience": 1,
+    "min_learning_rate": 1e-10,
+    "checkpoint_dir": "checkpoints",
+    "log_dir": "artifacts",
+    "random_seed": 42,
+    "monitor": "val_loss",
+    "save_best_only": true
+  },
+  "export": {
+    "export_dir": "exports",
+    "weights_path": null,
+    "export_saved_model": false,
+    "export_tflite": true,
+    "dynamic_range_quant": false,
+    "write_keras_model": false
+  },
+  "inference": {
+    "weights_path": null,
+    "model_prefix": "exports/dtln_aec",
+    "input_root": "input",
+    "output_root": "output",
+    "stateful": true,
+    "tflite": true,
+    "recursive": true,
+    "mic_suffix": "mic.wav",
+    "lpb_suffix": "lpb.wav"
+  }
+}
