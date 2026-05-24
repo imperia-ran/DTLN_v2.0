@@ -1,4 +1,7 @@
+# DTLN_v2.0
 
+This repository is the new home for the improved DTLN/AEC rewrite formerly
+hosted at `https://github.com/GR33N-WCL/DTLN_improved.git`.
 
 It is a ground-up rewrite of the original DTLN
 codebase and the existing repository-specific AEC branch. The project keeps the
