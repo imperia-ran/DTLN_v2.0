@@ -1,0 +1,15 @@
+DTLN_v2.0
+
+This project is an engineering rewrite of the DTLN denoising and AEC
+tooling. It keeps the core DTLN processing idea while reorganizing the project
+into a maintainable package with configuration, data validation, tests,
+benchmarks, and compatibility shims.
+
+Upstream reference:
+
+- breizhn/DTLN: https://github.com/breizhn/DTLN
+- DTLN paper: Dual-Signal Transformation LSTM Network for Real-Time Noise
+  Suppression, Proc. Interspeech 2020.
+
+The upstream DTLN repository is distributed under the MIT License. This
+rewrite is also distributed under the MIT License.
