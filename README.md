@@ -1,5 +1,7 @@
 # DTLN_v2.0
 
+[![tests](https://github.com/imperia-ran/DTLN_v2.0/actions/workflows/tests.yml/badge.svg)](https://github.com/imperia-ran/DTLN_v2.0/actions/workflows/tests.yml)
+
 This repository is the new home for the improved DTLN/AEC rewrite formerly
 hosted at `https://github.com/GR33N-WCL/DTLN_improved.git`.
 
@@ -78,6 +80,17 @@ DTLNbeta/
   legacy compatibility wrappers
 ```
 
+## Documentation
+
+- [Usage guide](docs/usage.md)
+- [Data conventions](docs/data.md)
+- [Testing guide](docs/testing.md)
+- [Benchmarking notes](docs/benchmarking.md)
+- [Architecture overview](docs/architecture.md)
+- [Rewrite evidence checklist](docs/rewrite-evidence.md)
+- [Contribution guide](CONTRIBUTING.md)
+- [Changelog](CHANGELOG.md)
+
 ## Quick start
 
 Install the package in editable mode:
@@ -96,8 +109,8 @@ Create a dataset manifest:
 
 ```bash
 python -m moneyprint_dtln.cli manifest \
+  --config configs/aec_train.json \
   --root /path/to/dataset \
-  --mode aec \
   --output dataset_manifest.json
 ```
 
@@ -112,7 +125,7 @@ Enhance a folder offline:
 
 ```bash
 python -m moneyprint_dtln.cli enhance \
-  --config configs/aec_infer.json \
+  --config configs/aec_infer_tflite.json \
   --input /path/to/input \
   --output /path/to/output
 ```
