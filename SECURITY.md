@@ -1,21 +1,35 @@
 # Security Policy
 
-## Supported Versions
+DTLN_v2.0 processes local audio files and local model artifacts. Security
+review should focus on explicit file access, dependency usage, and whether a
+workflow introduces unexpected network or system behavior.
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+## Supported Version
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+The `main` branch is the active development branch for the current rewrite.
 
-## Reporting a Vulnerability
+## Reporting a Concern
 
-Use this section to tell people how to report a vulnerability.
+Open a private report with the repository maintainer or file an issue that
+does not expose sensitive data. Include:
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
+- The command that triggered the behavior.
+- The configuration file used.
+- The input and output paths involved.
+- Whether TensorFlow or TFLite runtime dependencies were installed.
+- Any unexpected file writes, network requests, or command execution.
+
+## Expected Behavior
+
+The project should:
+
+- Read only user-provided audio, config, model, and manifest paths.
+- Write only user-provided output, report, checkpoint, or export paths.
+- Avoid background uploads and hidden network calls.
+- Keep training and export dependencies optional for lightweight review.
+
+## Dependency Notes
+
+Core utilities depend on common Python packages such as `numpy`, `soundfile`,
+and `wavinfo`. TensorFlow is optional and loaded lazily for training, export,
+or model-building workflows.
